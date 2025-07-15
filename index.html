@@ -1,24 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <style>
-        body { background-color: #A3B9C9; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .login-container { background-color: #FFFFFF; padding: 30px 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 300px; text-align: center; }
-        .login-container h1 { font-weight: bold; color: #333; margin-bottom: 20px; }
-        .login-container input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
-        .login-container button { background-color: #6A7FDB; color: #FFFFFF; padding: 12px 20px; border: none; border-radius: 25px; width: 100%; font-weight: bold; cursor: pointer; }
-        .login-container button:hover { background-color: #556DBF; }
-    </style>
+  <style>
+    form {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      margin: 10px 0;
+      padding: 5px;
+      width: 80%;
+    }
+  </style>
 </head>
 <body>
-    <div class="login-container">
-        <h1>Login</h1>
-        <input type="text" placeholder="Username" required>
-        <input type="password" placeholder="Password" required>
-        <button type="submit">Login</button>
-    </div>
+
+  <form onsubmit="return formvalidate()" action="message.html">
+    <input type="text" id="name" placeholder="Username"><br>
+    <input type="password" id="pwd" placeholder="Password"><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function formvalidate() {
+      var nam = document.getElementById("name");
+      var pwd = document.getElementById("pwd");
+
+      if (nam.value === "" || pwd.value === "") {
+        alert("Name and password can't be blank");
+        return false;
+      } else {
+        return true;
+      }
+    }
+  </script>
+
 </body>
 </html>
